@@ -1,0 +1,9 @@
+[
+  { "ParameterKey": "VPCId", "ParameterValue": "vpc-0198f464aa2221d89" },
+  { "ParameterKey": "PublicSubnet1Id", "ParameterValue": "subnet-043eed9c4a906c4c9" },
+  { "ParameterKey": "PublicSubnet2Id", "ParameterValue": "subnet-04653974e4f259f56" },
+  { "ParameterKey": "PrivateSubnet1Id", "ParameterValue": "subnet-019f5442d8a8397fa" },
+  { "ParameterKey": "PrivateSubnet2Id", "ParameterValue": "subnet-0aefef3e2cbb4ed89" },
+  { "ParameterKey": "KeyName", "ParameterValue": "MyUdagramKey" },
+  { "ParameterKey": "S3BucketName", "ParameterValue": "udacity-cfn-project2-na-eja" }
+]
