@@ -83,14 +83,20 @@ Resources:
         UserData: !Base64 |
           #!/bin/bash
           apt update -y
-          apt install -y nginx
+          apt install -y nginx unzip curl
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
           mkdir -p /var/www/html
-          cd /var/www/html 
-          touch index.html
-          echo "Hello This is my Second Project from Udacity!" > /var/www/html/index.html
-          chmod 755 /var/www/html/index.html
+          #cd /var/www/html 
+          #touch index.html
+          #echo "Hello This is my Second Project from Udacity!" > /var/www/html/index.html
+          #chmod 755 /var/www/html/index.html
           systemctl enable nginx
           systemctl restart nginx 
+          echo "Fetching index.html from S3..."
+          aws s3 cp s3://${S3BucketName}/index.html /var/www/html/index.html >> /var/log/user-data.log 2>&1
+          chmod 644 /var/www/html/index.html
 
   AutoScalingGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
